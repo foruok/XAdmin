@@ -1,0 +1,25 @@
+﻿div
+  div(class="x-contents-header")
+    p 权限管理
+  p
+    button(type="button" class="btn btn-success" ng-click='selected.text="选择父菜单";selected.num=-1;addOneConfirm("/add/action", "/dlgTpl/addAction?value1=新增权限&value4=2&value2=&value3=&value5=", null, "新增权限")')
+      | 新增
+  table(width='100%' border='1px' cellspacing='8px' cellpadding='10px')
+    tr(valign='middle')
+      th(width='200px' height='36px')
+        | 功能名称
+      th(width='400px' height='36px')
+        | 方法
+      th(height='36px')
+        | 操作
+    tr(ng-repeat='action in data' valign='middle')
+      td(height='48px') {{ action.parent == -1 ? action.name : action.parentName + "->" + action.name }}
+      td(height='48px') {{action.action}}
+      td(height='48px') 
+        | &nbsp;&nbsp;
+        label(class="btn btn-primary" ng-click='selected.text=action.parentName;selected.num=action.parent;addOneConfirm("/set/action/"+action.actionId, "/dlgTpl/addAction?value1=编辑权限&value2="+action.name+"&value3="+action.action+"&value4="+action.level+"&value5="+action.order, null, "编辑权限")')
+          | 编辑
+        | &nbsp;&nbsp;
+        label(class="btn btn-primary" ng-click='deleteConfirm("/del/action/"+action.actionId, "删除权限")')
+          | 删除
+  

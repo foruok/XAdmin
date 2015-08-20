@@ -1,0 +1,43 @@
+a {
+  color: #00B7FF;
+}
+
+div.x-view-full {
+  min-width: 780px;
+  max-width: 1260px;
+  margin: 10px auto;
+  height: auto;
+}
+
+.x-project-header {
+  border: 1px solid #E4E4E4;
+  background: #F2F2F2;
+  height: 60px;
+  margin-top: 0px auto;
+  margin-left: 0px auto;
+  margin-right: 0px auto;
+  margin-bottom: 10px;
+}
+
+div.x-sidemenu {
+  display: inline-block;
+  border: 1px solid #E4E4E4;
+  background: #F2F2F2;
+  width: 180px;
+  height: 600px;  
+}
+
+div.admin-contents{
+  width: 100%;
+  height: 100%;
+  padding-left: 10px;
+}
+
+div.x-contents-header{
+  width: 100%;
+  height: 40px;
+  background: #D9EDF7;
+  margin-bottom: 10px;
+  font-size: 22px;
+  padding-top: 6px;
+}

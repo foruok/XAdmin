@@ -1,0 +1,18 @@
+﻿.login-form-container
+  p.login-form-header 登录
+  form(action='login', method='POST', align='center')
+    table(border='0px' cellspacing='8px')
+      tr
+        td(height='28px')
+          label(for='user') 账号：
+        td(height='28px')
+          input#user(type='text', name='login_username')
+      tr
+        td(height='28px')
+          label(for='pwd') 密码：
+        td(height='28px')
+          input#pwd(type='password', name='login_password')
+      tr
+        td(colspan='2' align='right' height='28px')
+          input(type='submit', value='登录')
+p #{msg}

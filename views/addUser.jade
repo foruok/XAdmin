@@ -1,0 +1,49 @@
+﻿div(class="admin-addUser")
+  h3(align="center") #{value1}
+  table(border='0px' width='100%' cellspacing='4px' id='admin-addUser-info')
+    tr
+      td(width='120px' height='48px' align='right' valign='middle')
+        label 账号：
+      td(height='48px' valign='middle')
+        input(type="text" name="name" value='#{value2}' disabled='#{value5}')
+    tr
+      td(width='120px' height='48px' align='right' valign='middle')
+        label 密码：
+      td(height='48px' valign='middle')
+        input(type="password" name="password" id='password' ng-model="password11" ng-change='validatePassword("#password", "#password2")')
+    tr
+      td(width='120px' height='48px' align='right' valign='middle')
+        label 确认密码：
+      td(height='48px' valign='middle')
+        input(type="password" name="password2" id='password2' ng-model="password22" ng-change='validatePassword("#password", "#password2")')
+        span(class="glyphicon glyphicon-remove" ng-show="passwordNotEqual")
+    tr
+      td(width='120px' height='48px' align='right' valign='middle')
+        label 单位：
+      td(height='48px' valign='middle')
+        input(type="text" name="organization" value='#{value3}')
+    tr
+      td(width='120px' height='48px' align='right' valign='middle')
+        label 邮箱：
+      td(height='48px' valign='middle')
+        input(type="email" name="email" value='#{value4}')
+    tr
+      td(width='120px' height='48px' align='right' valign='middle')
+        label 角色：
+      td(height='48px' valign='middle')
+        div(class="btn-group" dropdown)
+          button(id="role-button" type="button" class="btn btn-success")
+            | {{selected.text}}
+          button(type="button" class="btn btn-success" dropdown-toggle)
+            span(class="caret")
+          ul(class="dropdown-menu" role="menu" aria-labelledby="role-button")
+            li(role="menuitem" ng-repeat="xrole in subdata") 
+              a(href='' ng-click='selected.text=xrole.name;selected.num=xrole.roleId') {{xrole.name}}
+      
+    tr(align="center" valign='middle')
+      td(colspan='2')
+        button(type="button" class="btn btn-secondary" ng-click="closeThisDialog()")
+          | 取消
+        | &nbsp;&nbsp;&nbsp;&nbsp;
+        button(type="button" class="btn btn-primary" ng-click="confirm('#admin-addUser-info')")
+          | 保存

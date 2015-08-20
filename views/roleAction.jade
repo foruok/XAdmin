@@ -1,0 +1,25 @@
+﻿div(class="admin-setRoleAction")
+  h3(align="center") 为[#{value1}]设置权限
+  table(border='0px' width='100%')
+    tr(height=28)
+      th(width='50px' valign='bottom')
+      th(width='200px' valign='bottom')
+        | 权限
+      th(height='28px' valign='bottom')
+        | 说明
+    tr(ng-repeat='action in subdata' height=28)
+      td(width='50px' align='right' valign='top')
+        input(type='checkbox' ng-model='action.selected')
+      td(width='200px' valign='top')
+        | {{action.name}}
+      td(valign='top')
+        | {{action.desc}}
+    tr(height='1')
+      td(colspan='3' height='1px')
+        hr(style="height:1px;border:none;border-top:1px dashed #0066CC;")
+  p(align="center")
+    button(type="button" class="btn btn-primary" ng-click="closeThisDialog()")
+      | 取消
+    | &nbsp;&nbsp;&nbsp;&nbsp;
+    button(type="button" class="btn btn-primary" ng-click="confirm()")
+      | 设置

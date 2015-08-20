@@ -1,0 +1,25 @@
+﻿div
+  div(class="x-contents-header")
+    p 角色管理
+  p
+    button(type="button" class="btn btn-success" ng-click='addOneConfirm("/add/role", "/dlgTpl/addRole?value1=新增角色", null, "新增角色")')
+      | 新增
+  table(width='100%' border='1px' cellspacing='8px' cellpadding='4px')
+    tr(valign='middle')
+      th(width='320px' height='36px')
+        | 角色
+      th(height='36px')
+        | 操作
+    tr(ng-repeat='role in data' valign='middle')
+      td(height='48px') {{role.name}}
+      td(height='48px') 
+        | &nbsp;&nbsp;
+        label(class="btn btn-primary" ng-if="role.roleId != -1" ng-click='setRole("/set/role/"+role.roleId, "/dlgTpl/roleAction?value1="+role.name+"&value2="+role.roleId, "/data/user/Actions", role.actions)')
+          | 设置权限
+        | &nbsp;&nbsp;
+        label(class="btn btn-primary" ng-if="role.roleId != -1" ng-click='addOneConfirm("/set/role/"+role.roleId, "/dlgTpl/addRole?value1=修改角色", null, "修改角色")')
+          | 编辑
+        | &nbsp;&nbsp;
+        label(class="btn btn-primary" ng-if="role.roleId != -1" ng-click='deleteConfirm("/del/role/"+role.roleId, "删除角色")')
+          | 删除
+  

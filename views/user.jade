@@ -1,0 +1,31 @@
+﻿div
+  div(class="x-contents-header")
+    p 用户管理
+  p
+    button(type="button" class="btn btn-success" ng-click='passwordNotEqual=false;selected.text="选择角色";addOneConfirm("/add/user", "/dlgTpl/addUser?value1=新增账号&value2=&value3=&value4=&value5=enabled", "/data/user/Roles", "新增账号")')
+      | 新增
+  table(width='100%' border='1px' cellspacing='8px' cellpadding='4px')
+    tr(valign='middle')
+      th(width='130px' height='36px')
+        | 登录名
+      th(width='130px' height='36px')
+        | 角色
+      th(width='120px' height='36px')
+        | 组织
+      th(width='160px' height='36px')
+        | 邮箱        
+      th(height='36px')
+        | 操作
+    tr(ng-repeat='user in data' valign='middle')
+      td(height='48px') {{user.name}}
+      td(height='48px') {{user.roleNames}}
+      td(height='48px') {{user.organization}}
+      td(height='48px') {{user.email}}
+      td(height='48px') 
+        | &nbsp;&nbsp;
+        label(class="btn btn-primary" ng-click='selected.text=user.roleNames;selected.num=user.roles[0];addOneConfirm("/set/user/"+user.name, "/dlgTpl/addUser?value1=编辑账号&value5=disabled&value2="+user.name+"&value3="+user.organization+"&value4="+user.email, "/data/user/Roles", "编辑账号")')
+          | 编辑
+        | &nbsp;&nbsp;
+        label(class="btn btn-primary" ng-if='user.roles[0]!=-1' ng-click='deleteConfirm("/del/user/"+user.name, "删除用户")')
+          | 删除
+  

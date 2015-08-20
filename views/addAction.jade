@@ -1,0 +1,43 @@
+﻿div(class="admin-addAction")
+  h3(align="center") #{value1}
+  table(border='0px' width='100%' cellspacing='4px' id='admin-addAction-info')
+    tr
+      td(width='120px' height='48px' align='right' valign='middle')
+        label 名字：
+      td(height='48px' valign='middle')
+        input(type="text" name="name" value='#{value2}')
+    tr
+      td(width='120px' height='48px' align='right' valign='middle')
+        label 方法：
+      td(height='48px' valign='middle')
+        input(type="text" name="action" value='#{value3}')
+    tr
+      td(width='120px' height='48px' align='right' valign='middle')
+        label 菜单级别：
+      td(height='48px' valign='middle')
+        input(type="text" name="level" min='1' max='2' value='#{value4}')
+    tr
+      td(width='120px' height='48px' align='right' valign='middle')
+        label 菜单顺序：
+      td(height='48px' valign='middle')
+        input(type="text" name="order" min='0' max='10000' value='#{value5}')
+    tr(ng-if='#{value4}>1')
+      td(width='120px' height='48px' align='right' valign='middle')
+        label 父菜单：
+      td(height='48px' valign='middle')
+        div(class="btn-group" dropdown)
+          button(id="action-button" type="button" class="btn btn-success")
+            | {{selected.text}}
+          button(type="button" class="btn btn-success" dropdown-toggle)
+            span(class="caret")
+          ul(class="dropdown-menu" role="menu" aria-labelledby="action-button")
+            li(role="menuitem" ng-repeat="action in data | filter:{parent: -1}")
+              a(href='' ng-click='selected.text=action.name;selected.num=action.actionId') {{action.name}}
+      
+    tr(align="center" valign='middle')
+      td(colspan='2')
+        button(type="button" class="btn btn-secondary" ng-click="closeThisDialog()")
+          | 取消
+        | &nbsp;&nbsp;&nbsp;&nbsp;
+        button(type="button" class="btn btn-primary" ng-click="confirm('#admin-addAction-info')")
+          | 保存

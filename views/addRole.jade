@@ -1,0 +1,10 @@
+﻿div(class="admin-addRole")
+  div(class="ngdialog-message" id="admin-addRole-info")
+    h3(align="center") #{value1}
+    p 角色名称：
+      input(type='text' name='roleName')
+  div(class="ngdialog-buttons")
+    button(type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm('#admin-addRole-info')")
+      | 保存
+    button(type="button" class="ngdialog-button ngdialog-button-primary" ng-click="closeThisDialog()")
+      | 取消

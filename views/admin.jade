@@ -1,0 +1,47 @@
+﻿doctype html
+html(ng-app='x-admin')
+  head
+    meta(charset='UTF-8')
+    title X管理系统
+    link(rel='stylesheet', href='/stylesheets/admin.css')
+    link(rel='stylesheet', href='/stylesheets/login.css')
+    link(rel='stylesheet', href='/stylesheets/bootstrap-3.1.1.min.css')
+    link(rel='stylesheet', href='/stylesheets/ngDialog-0.4.0.min.css')
+    link(rel='stylesheet', href='/stylesheets/ngDialog-theme-default-0.4.0.min.css')
+    style(type="text/css")
+      | .ngdialog.dialogwidth800 .ngdialog-content{width : 800px;}
+      
+  body
+    .x-view-full(ng-controller='x-controller', ng-init='init()')
+      table(class='x-project-header' width='100%')
+        tr
+          td(width='30%' height='60px' align='left' valign='middle' style='font-size:28px;font-weight:bold')
+            | &nbsp;&nbsp;X管理后台
+          td(width='70%' height='60px' align='right' valign='middle')
+            a(href='/profile') #{userName}
+            &nbsp;&nbsp;
+            a(href='/logout') 退出
+            &nbsp;&nbsp;
+      table(width='100%' border='0px')
+        tr(align='left' valign='top')
+          td(width="180px")
+            .x-sidemenu
+              accordion(close-others='oneAtATime')
+                accordion-group(heading='{{menu.text}}', ng-repeat='menu in menus', is-open='$first')
+                  div(ng-repeat='subMenu in menu.subMenus')
+                    a(href='', ng-click='setContent(subMenu.action)') {{subMenu.text}}
+          td
+            div(class='admin-contents' ng-include='content')
+    script(src='/javascripts/angular-1.4.3.min.js')
+    script(src='/javascripts/angular-animate-1.4.3.min.js')
+    script(src='/javascripts/ui-bootstrap-tpls-0.13.3.min.js')
+    script(src='/javascripts/ngDialog-0.4.0.min.js')
+    script(src='/javascripts/x-admin.js')
+    script(type='text/ng-template' id='delConfirmDlgId')
+      div(class="ngdialog-message")
+        h3(align='center') 您确认要删除吗?
+      div(class="ngdialog-buttons")
+        button(type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="closeThisDialog()")
+          | 取消      
+        button(type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm()")
+          | 确定      
