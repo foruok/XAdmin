@@ -29,11 +29,15 @@ see package.json：
 
 And there are other dependencies:
 
-- AngularJS
-- UI Bootstrap
-- ngDialog
+- AngularJS(1.4.3)
+- UI Bootstrap(0.13.3)
+- ngDialog(0.4.0)
+- Bootstrap CSS(3.1.1)
 
-I'd add them to project manually.
+I'd add them to project manually. They reside in these directories:
+
+- public/javascripts 
+- public/stylesheets
 
 ## create
 
@@ -53,4 +57,4 @@ Here are some links:
 - [AngularJS](http://angularjs.org/)
 - [Mongoose](http://mongoosejs.com/)
 - [ngDialog](https://github.com/likeastore/ngDialog)
-- [My Blog](http://blog.csdn.net/foruok)
+- [Foruok's Blog](http://blog.csdn.net/foruok)
