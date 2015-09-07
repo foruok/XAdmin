@@ -58,3 +58,12 @@ Here are some links:
 - [Mongoose](http://mongoosejs.com/)
 - [ngDialog](https://github.com/likeastore/ngDialog)
 - [Foruok's Blog](http://blog.csdn.net/foruok)
+
+## Run
+
+Follow these steps:
+
+1. clone
+2. cd XAdmin && npm install
+3. install MongoDB && run it
+4. npm start
