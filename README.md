@@ -63,7 +63,7 @@ Here are some links:
 
 Follow these steps:
 
-1. clone
+1. clone the XAdmin project
 2. cd XAdmin && npm install
 3. install MongoDB && run it
 4. npm start
