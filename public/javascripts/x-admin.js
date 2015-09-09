@@ -81,6 +81,7 @@ controller('x-controller', function ($scope, $http, $document, $rootScope, ngDia
   
   $scope.repackDlgInputInfo = function(value){
     console.log('repackInputInfo - ', value);
+	$scope.postData = []; //reset
     var el = angular.element(document.querySelector(value));
     if(el){
       var list = el.find('input');
@@ -91,10 +92,12 @@ controller('x-controller', function ($scope, $http, $document, $rootScope, ngDia
         });
         console.log(list[i].name, ' - ', list[i].value);
       }
-      $scope.postData.push({
-        name: "selected",
-        value: $scope.selected
-      });
+      if($scope.selected.num != -2){
+        $scope.postData.push({
+          name: "selected",
+          value: $scope.selected
+        });
+      }
       console.log($scope.postData);
     }
   }

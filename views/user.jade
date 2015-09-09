@@ -2,7 +2,7 @@
   div(class="x-contents-header")
     p 用户管理
   p
-    button(type="button" class="btn btn-success" ng-click='passwordNotEqual=false;selected.text="选择角色";addOneConfirm("/add/user", "/dlgTpl/addUser?value1=新增账号&value2=&value3=&value4=&value5=enabled", "/data/user/Roles", "新增账号")')
+    button(type="button" class="btn btn-success" ng-click='passwordNotEqual=false;selected.text="选择角色";selected.num=-2;addOneConfirm("/add/user", "/dlgTpl/addUser?value1=新增账号&value2=&value3=&value4=&value5=enabled", "/data/user/Roles", "新增账号")')
       | 新增
   table(width='100%' border='1px' cellspacing='8px' cellpadding='4px')
     tr(valign='middle')
